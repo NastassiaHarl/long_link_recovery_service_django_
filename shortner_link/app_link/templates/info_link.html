@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Info_link{% endblock %}
+
+{% block content %}
+<body>
+    <a href="{% url 'users' %}">Главная страница</a>
+    <div class="info-link">
+      <div class="g-container">
+      <table class="service-box book-table table table-striped table-hover">
+      <thead>
+      <tr>
+            <th scope="col">Длинный URL</th>
+            <th scope="col">Короткий URL</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for url in context.urls %}
+          <tr>
+              <td scope="row">{{ url.original_url }}</td>
+              <td>{{ url.short_url }}</td>
+          </tr>
+      {% endfor %}
+      </tbody>
+</body>
+</html>
+{% endblock %}
